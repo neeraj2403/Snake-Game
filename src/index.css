@@ -1,0 +1,100 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+
+.snake-dot {
+  position: absolute;
+  width: 2%;
+  height: 2%;
+  background-color: #ff9100;
+  /* border: 1px solid #fff; */
+  z-index: 1;
+  border-radius: 10px;
+}
+
+.snake-food {
+  position: absolute;
+  width: 2%;
+  height: 2%;
+  background: #68E768;
+  /* border: 1px solid #fff; */
+  z-index: 1;
+  border-radius: 10px;
+}
+
+.game {
+  display: flex;
+  flex-direction: column;
+  /* justify-content:space-evenly; */
+}
+.game-area {
+  background-color: #0C1021;
+    position: relative;
+    margin: 50px 0 30px 30px;
+    width: 550px;
+    height: 500px;
+    border: 15px solid #708090;
+    border-radius: 20px;
+    box-shadow: 10px white;
+
+    
+  }
+.score {
+  text-align: center;
+  align-items: center;
+  margin-top: 150px;
+  margin-bottom: 350px;
+  padding: 30px 40px 30px 40px;
+  background-color: #0C1021;
+  border: 10px solid #708090;
+  border-radius: 20px;
+
+  
+}
+
+h1 {
+  text-align: center;
+}
+
+.heading h1{
+  color: #A4A8CD;
+  font-size: 45px !important;
+  font-family: 'Luckiest Guy', cursive;
+}
+
+.score h1{
+  color: #A4A8CD;;
+  font-family: 'Luckiest Guy', cursive;
+
+}
+
+.game-canvas {
+  display: flex;
+  flex-direction: row;
+  justify-content:space-evenly;
+}
+
+body{
+  background-color: #060629;
+}
+
+.btn{
+  padding: 10px;
+  background-color:#68E768 ;
+  font-family: 'Luckiest Guy', cursive;
+  /* color: #68E768; */
+  border-radius: 10px;
+
+}
+
+.obstacle{
+    position: absolute;
+    width: 2%;
+    height: 2%;
+    background-color: #A4A8CD;
+    /* border: 1px solid #fff; */
+    /* z-index: 1; */
+    /* border-radius: 10px; */
+  
+  
+}
