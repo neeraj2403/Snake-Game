@@ -25,7 +25,6 @@
 .game {
   display: flex;
   flex-direction: column;
-  /* justify-content:space-evenly; */
 }
 .game-area {
   background-color: #0C1021;
@@ -82,7 +81,6 @@ body{
   padding: 10px;
   background-color:#68E768 ;
   font-family: 'Luckiest Guy', cursive;
-  /* color: #68E768; */
   border-radius: 10px;
 
 }
@@ -92,9 +90,4 @@ body{
     width: 2%;
     height: 2%;
     background-color: #A4A8CD;
-    /* border: 1px solid #fff; */
-    /* z-index: 1; */
-    /* border-radius: 10px; */
-  
-  
 }

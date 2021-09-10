@@ -4,11 +4,9 @@
 import React, { Component } from 'react';
 import Snake from './Components/Snake';
 import Food from './Components/Food';
-// import logo from './snake2.png';
 import Obstacle from './Components/obstacles';
-// import Dropdown from 'react-bootstrap/Dropdown';
-// import 'bootstrap/dist/css/bootstrap.css';
 
+// Find randaom coordinates for positioning the food
 const getRandomCoordinates = () => {
   let min = 1;
   let max = 98;
@@ -17,6 +15,7 @@ const getRandomCoordinates = () => {
   return [x,y]
 }
 
+// Initialising the different properties of the game
 const initialState = {
   food: getRandomCoordinates(),
   speed: 100,
@@ -28,6 +27,7 @@ const initialState = {
     [2,0],
     [4,0]
   ],
+  // coordinates for obstacles
   obstacles: [
     [38,20],[40,20],[42,20],[44,20],[46,20],[48,20],[50,20],[52,20],[54,20],[56,20],[58,20],[60,20],[62,20],[64,20],
     [38,70],[40,70],[42,70],[44,70],[46,70],[48,70],[50,70],[52,70],[54,70],[56,70],[58,70],[60,70],[62,70],[64,70],
@@ -46,9 +46,12 @@ const initialState = {
   obstacles3: []
 }
 
+
 function refreshPage() {
   window.location.reload();
 }
+
+
 
 class App extends Component {
   state = initialState;
@@ -68,6 +71,7 @@ class App extends Component {
     
   }
 
+  // configuring movement of the snake using keyboard arrows
   onKeyDown = (e) => {
     e = e || window.event;
     switch (e.keyCode) {
@@ -115,6 +119,8 @@ class App extends Component {
   }
   }
 
+//checking whether the snake has gone out of the area
+
   checkIfOutOfBorders() {
     let head = this.state.snakeDots[this.state.snakeDots.length - 1];
     if (head[0] >= 100 || head[1] >= 100 || head[0] < 0 || head[1] < 0) {
@@ -132,6 +138,8 @@ class App extends Component {
       }
     })
   }
+
+  // check for finding obstacle
   checkforObstacle() {
     let snake = [...this.state.snakeDots];
     let head = snake[snake.length -1];
@@ -144,6 +152,7 @@ class App extends Component {
     })
   }
 
+  // check whether the food is ate
   checkIfEat() {
     let head = this.state.snakeDots[this.state.snakeDots.length - 1];
     let food = this.state.food;
@@ -156,6 +165,7 @@ class App extends Component {
     }
   }
 
+  // function for enlarging the snake when food is ate
   enlargeSnake() {
     let newSnake = [...this.state.snakeDots];
     newSnake.unshift([])
@@ -163,6 +173,7 @@ class App extends Component {
       snakeDots: newSnake
     })
   }
+  // function for increasing the speed of the snake when food is ate
 
   increaseSpeed() {
     if (this.state.speed > 10) {
@@ -172,6 +183,7 @@ class App extends Component {
     }
   }
 
+  // alert game over message
   onGameOver() {
     alert(`Game Over. Snake length is ${this.state.snakeDots.length}`);
     this.setState(initialState)
@@ -179,6 +191,8 @@ class App extends Component {
   getdir(){
     this.setState({temp: this.state.direction})
   }
+
+  // funtion for starting the game using start game button
   startgame(){ 
     if(this.state.direction)
     {this.getdir();
@@ -206,12 +220,7 @@ class App extends Component {
   
 
   render() {
-    // let gridContent;
-    // if (this.onGameOver) {
-    //   gridContent = <div className="grid-message">
-    //     <h1>Game Over</h1>
-    //   </div>;
-    // }
+   
     return (
       
       <div className="game">
@@ -222,6 +231,7 @@ class App extends Component {
 
       </div>
       <div className = "game-canvas">
+
         <div className="game-area">
 
           <Snake snakeDots={this.state.snakeDots}/>
